@@ -1,0 +1,4 @@
+[
+  "test_jsonParser.py::TestJsonParser::test_jsonRead",
+  "test_jsonParser.py::TestJsonParser::test_parse"
+]
