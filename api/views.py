@@ -1,10 +1,10 @@
 from django.shortcuts import render
 
 from django import views
-from django.views.generic import TemplateView, FormView
+from django.views.generic import FormView
 from django.http import HttpResponseRedirect, JsonResponse
 from .forms import UploadFileForm
-import time, os, json, codecs
+import time, os, json
 from .jsonparser import JsonParser
 
 
@@ -22,15 +22,12 @@ class PatientView(views.View):
 class UploadFileView(FormView):
     jsonParser = JsonParser()
     form_class = UploadFileForm
-    # form = UploadFileForm
     template_name = 'api/index.html'
     success_url = 'api/success.html'
 
     def post(self, request, *args, **kwargs):
-        # form = self.get_form(self.form_class)
         form = UploadFileForm(request.POST, request.FILES)
         file = request.FILES['file']
-        # utf8_file = file.read().decode('utf-8')
         if form.is_valid():
             self.jsonParser.parsse(file)
             return HttpResponseRedirect('success')
