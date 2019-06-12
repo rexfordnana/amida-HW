@@ -1,10 +1,10 @@
 pipeline{
-    agent any
+    agent { dockerfile true}
 
     stages{
         stage('Build'){
             steps{
-                echo 'Building'
+                sh 'pwd'
             }
         }
         stage('Run unit test'){
