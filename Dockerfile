@@ -3,7 +3,7 @@ FROM python:3.7-alpine
 ENV BRANCH_NAME
 ENV REPO
 
-WORKDIR /home/jenkins/workspace/
+WORKDIR /app
 
 ADD . .
 
