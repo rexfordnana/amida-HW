@@ -1,10 +1,5 @@
 pipeline{
     agent { dockerfile true}
-    environment{
-        BRANCH_NAME=env.BRANCH_NAME
-        REPO=env.REPO
-    }    
-
     stages{
         stage('Build'){
             steps{
