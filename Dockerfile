@@ -1,10 +1,15 @@
 FROM python:3.7-alpine
 
-WORKDIR /app
+ENV BRANCH_NAME
+ENV REPO
 
-ADD . /app
+WORKDIR /home/jenkins/workspace/$REPO/$BRANCH_NAME
+
+ADD . .
 
 RUN pip install -r requirements.txt
+
+RUN pwd
 
 EXPOSE 80
 
