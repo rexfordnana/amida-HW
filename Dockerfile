@@ -1,11 +1,8 @@
 FROM python:3.7-alpine
 
-ENV BRANCH_NAME
-ENV REPO
-
 WORKDIR /app
 
-ADD . .
+ADD . /app
 
 RUN pip install -r requirements.txt
 
